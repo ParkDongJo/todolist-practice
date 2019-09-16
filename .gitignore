@@ -3,6 +3,7 @@
 # dependencies
 typescript-todolist/node_modules
 typescript-redux-todolist/node_modules
+react-tdd/node_modules
 
 
 # testing
@@ -11,6 +12,7 @@ typescript-redux-todolist/node_modules
 # production
 typescript-todolist/build
 typescript-redux-todolist/build
+react-tdd/build
 
 # misc
 .DS_Store
