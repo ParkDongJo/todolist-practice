@@ -30609,7 +30609,604 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/NewRestaurantForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var NewRestaurantForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewRestaurantForm, _Component);
+
+  function NewRestaurantForm(props) {
+    var _this;
+
+    _classCallCheck(this, NewRestaurantForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewRestaurantForm).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      inputText: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleTextChange", function (event) {
+      _this.setState({
+        inputText: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSave", function () {
+      var inputText = _this.state.inputText;
+      var onSave = _this.props.onSave;
+      onSave(inputText);
+    });
+
+    return _this;
+  }
+
+  _createClass(NewRestaurantForm, [{
+    key: "render",
+    value: function render() {
+      var inputText = this.state.inputText;
+      return _react.default.createElement("div", null, _react.default.createElement("input", {
+        type: "text",
+        "data-test": "newRestaurantName",
+        value: inputText,
+        onChange: this.handleTextChange
+      }), _react.default.createElement("button", {
+        "data-test": "saveNewRestaurantButton",
+        onClick: this.handleSave
+      }, "Save"));
+    }
+  }]);
+
+  return NewRestaurantForm;
+}(_react.Component);
+
+exports.default = NewRestaurantForm;
+},{"react":"node_modules/react/index.js"}],"node_modules/blob-util/dist/blob-util.es.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createBlob = createBlob;
+exports.createObjectURL = createObjectURL;
+exports.revokeObjectURL = revokeObjectURL;
+exports.blobToBinaryString = blobToBinaryString;
+exports.base64StringToBlob = base64StringToBlob;
+exports.binaryStringToBlob = binaryStringToBlob;
+exports.blobToBase64String = blobToBase64String;
+exports.dataURLToBlob = dataURLToBlob;
+exports.blobToDataURL = blobToDataURL;
+exports.imgSrcToDataURL = imgSrcToDataURL;
+exports.canvasToBlob = canvasToBlob;
+exports.imgSrcToBlob = imgSrcToBlob;
+exports.arrayBufferToBlob = arrayBufferToBlob;
+exports.blobToArrayBuffer = blobToArrayBuffer;
+exports.arrayBufferToBinaryString = arrayBufferToBinaryString;
+exports.binaryStringToArrayBuffer = binaryStringToArrayBuffer;
+
+// TODO: including these in blob-util.ts causes typedoc to generate docs for them,
+// even with --excludePrivate ¯\_(ツ)_/¯
+
+/** @private */
+function loadImage(src, crossOrigin) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image();
+
+    if (crossOrigin) {
+      img.crossOrigin = crossOrigin;
+    }
+
+    img.onload = function () {
+      resolve(img);
+    };
+
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+/** @private */
+
+
+function imgToCanvas(img) {
+  var canvas = document.createElement('canvas');
+  canvas.width = img.width;
+  canvas.height = img.height; // copy the image contents to the canvas
+
+  var context = canvas.getContext('2d');
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
+  return canvas;
+}
+/* global Promise, Image, Blob, FileReader, atob, btoa,
+   BlobBuilder, MSBlobBuilder, MozBlobBuilder, WebKitBlobBuilder, webkitURL */
+
+/**
+ * Shim for
+ * [`new Blob()`](https://developer.mozilla.org/en-US/docs/Web/API/Blob.Blob)
+ * to support
+ * [older browsers that use the deprecated `BlobBuilder` API](http://caniuse.com/blob).
+ *
+ * Example:
+ *
+ * ```js
+ * var myBlob = blobUtil.createBlob(['hello world'], {type: 'text/plain'});
+ * ```
+ *
+ * @param parts - content of the Blob
+ * @param properties - usually `{type: myContentType}`,
+ *                           you can also pass a string for the content type
+ * @returns Blob
+ */
+
+
+function createBlob(parts, properties) {
+  parts = parts || [];
+  properties = properties || {};
+
+  if (typeof properties === 'string') {
+    properties = {
+      type: properties
+    }; // infer content type
+  }
+
+  try {
+    return new Blob(parts, properties);
+  } catch (e) {
+    if (e.name !== 'TypeError') {
+      throw e;
+    }
+
+    var Builder = typeof BlobBuilder !== 'undefined' ? BlobBuilder : typeof MSBlobBuilder !== 'undefined' ? MSBlobBuilder : typeof MozBlobBuilder !== 'undefined' ? MozBlobBuilder : WebKitBlobBuilder;
+    var builder = new Builder();
+
+    for (var i = 0; i < parts.length; i += 1) {
+      builder.append(parts[i]);
+    }
+
+    return builder.getBlob(properties.type);
+  }
+}
+/**
+ * Shim for
+ * [`URL.createObjectURL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL.createObjectURL)
+ * to support browsers that only have the prefixed
+ * `webkitURL` (e.g. Android <4.4).
+ *
+ * Example:
+ *
+ * ```js
+ * var myUrl = blobUtil.createObjectURL(blob);
+ * ```
+ *
+ * @param blob
+ * @returns url
+ */
+
+
+function createObjectURL(blob) {
+  return (typeof URL !== 'undefined' ? URL : webkitURL).createObjectURL(blob);
+}
+/**
+ * Shim for
+ * [`URL.revokeObjectURL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL.revokeObjectURL)
+ * to support browsers that only have the prefixed
+ * `webkitURL` (e.g. Android <4.4).
+ *
+ * Example:
+ *
+ * ```js
+ * blobUtil.revokeObjectURL(myUrl);
+ * ```
+ *
+ * @param url
+ */
+
+
+function revokeObjectURL(url) {
+  return (typeof URL !== 'undefined' ? URL : webkitURL).revokeObjectURL(url);
+}
+/**
+ * Convert a `Blob` to a binary string.
+ *
+ * Example:
+ *
+ * ```js
+ * blobUtil.blobToBinaryString(blob).then(function (binaryString) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param blob
+ * @returns Promise that resolves with the binary string
+ */
+
+
+function blobToBinaryString(blob) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+    var hasBinaryString = typeof reader.readAsBinaryString === 'function';
+
+    reader.onloadend = function () {
+      var result = reader.result || '';
+
+      if (hasBinaryString) {
+        return resolve(result);
+      }
+
+      resolve(arrayBufferToBinaryString(result));
+    };
+
+    reader.onerror = reject;
+
+    if (hasBinaryString) {
+      reader.readAsBinaryString(blob);
+    } else {
+      reader.readAsArrayBuffer(blob);
+    }
+  });
+}
+/**
+ * Convert a base64-encoded string to a `Blob`.
+ *
+ * Example:
+ *
+ * ```js
+ * var blob = blobUtil.base64StringToBlob(base64String);
+ * ```
+ * @param base64 - base64-encoded string
+ * @param type - the content type (optional)
+ * @returns Blob
+ */
+
+
+function base64StringToBlob(base64, type) {
+  var parts = [binaryStringToArrayBuffer(atob(base64))];
+  return type ? createBlob(parts, {
+    type: type
+  }) : createBlob(parts);
+}
+/**
+ * Convert a binary string to a `Blob`.
+ *
+ * Example:
+ *
+ * ```js
+ * var blob = blobUtil.binaryStringToBlob(binaryString);
+ * ```
+ *
+ * @param binary - binary string
+ * @param type - the content type (optional)
+ * @returns Blob
+ */
+
+
+function binaryStringToBlob(binary, type) {
+  return base64StringToBlob(btoa(binary), type);
+}
+/**
+ * Convert a `Blob` to a binary string.
+ *
+ * Example:
+ *
+ * ```js
+ * blobUtil.blobToBase64String(blob).then(function (base64String) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param blob
+ * @returns Promise that resolves with the binary string
+ */
+
+
+function blobToBase64String(blob) {
+  return blobToBinaryString(blob).then(btoa);
+}
+/**
+ * Convert a data URL string
+ * (e.g. `'data:image/png;base64,iVBORw0KG...'`)
+ * to a `Blob`.
+ *
+ * Example:
+ *
+ * ```js
+ * var blob = blobUtil.dataURLToBlob(dataURL);
+ * ```
+ *
+ * @param dataURL - dataURL-encoded string
+ * @returns Blob
+ */
+
+
+function dataURLToBlob(dataURL) {
+  var type = dataURL.match(/data:([^;]+)/)[1];
+  var base64 = dataURL.replace(/^[^,]+,/, '');
+  var buff = binaryStringToArrayBuffer(atob(base64));
+  return createBlob([buff], {
+    type: type
+  });
+}
+/**
+ * Convert a `Blob` to a data URL string
+ * (e.g. `'data:image/png;base64,iVBORw0KG...'`).
+ *
+ * Example:
+ *
+ * ```js
+ * var dataURL = blobUtil.blobToDataURL(blob);
+ * ```
+ *
+ * @param blob
+ * @returns Promise that resolves with the data URL string
+ */
+
+
+function blobToDataURL(blob) {
+  return blobToBase64String(blob).then(function (base64String) {
+    return 'data:' + blob.type + ';base64,' + base64String;
+  });
+}
+/**
+ * Convert an image's `src` URL to a data URL by loading the image and painting
+ * it to a `canvas`.
+ *
+ * Note: this will coerce the image to the desired content type, and it
+ * will only paint the first frame of an animated GIF.
+ *
+ * Examples:
+ *
+ * ```js
+ * blobUtil.imgSrcToDataURL('http://mysite.com/img.png').then(function (dataURL) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * ```js
+ * blobUtil.imgSrcToDataURL('http://some-other-site.com/img.jpg', 'image/jpeg',
+ *                          'Anonymous', 1.0).then(function (dataURL) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param src - image src
+ * @param type - the content type (optional, defaults to 'image/png')
+ * @param crossOrigin - for CORS-enabled images, set this to
+ *                                         'Anonymous' to avoid "tainted canvas" errors
+ * @param quality - a number between 0 and 1 indicating image quality
+ *                                     if the requested type is 'image/jpeg' or 'image/webp'
+ * @returns Promise that resolves with the data URL string
+ */
+
+
+function imgSrcToDataURL(src, type, crossOrigin, quality) {
+  type = type || 'image/png';
+  return loadImage(src, crossOrigin).then(imgToCanvas).then(function (canvas) {
+    return canvas.toDataURL(type, quality);
+  });
+}
+/**
+ * Convert a `canvas` to a `Blob`.
+ *
+ * Examples:
+ *
+ * ```js
+ * blobUtil.canvasToBlob(canvas).then(function (blob) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * Most browsers support converting a canvas to both `'image/png'` and `'image/jpeg'`. You may
+ * also want to try `'image/webp'`, which will work in some browsers like Chrome (and in other browsers, will just fall back to `'image/png'`):
+ *
+ * ```js
+ * blobUtil.canvasToBlob(canvas, 'image/webp').then(function (blob) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param canvas - HTMLCanvasElement
+ * @param type - the content type (optional, defaults to 'image/png')
+ * @param quality - a number between 0 and 1 indicating image quality
+ *                                     if the requested type is 'image/jpeg' or 'image/webp'
+ * @returns Promise that resolves with the `Blob`
+ */
+
+
+function canvasToBlob(canvas, type, quality) {
+  if (typeof canvas.toBlob === 'function') {
+    return new Promise(function (resolve) {
+      canvas.toBlob(resolve, type, quality);
+    });
+  }
+
+  return Promise.resolve(dataURLToBlob(canvas.toDataURL(type, quality)));
+}
+/**
+ * Convert an image's `src` URL to a `Blob` by loading the image and painting
+ * it to a `canvas`.
+ *
+ * Note: this will coerce the image to the desired content type, and it
+ * will only paint the first frame of an animated GIF.
+ *
+ * Examples:
+ *
+ * ```js
+ * blobUtil.imgSrcToBlob('http://mysite.com/img.png').then(function (blob) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * ```js
+ * blobUtil.imgSrcToBlob('http://some-other-site.com/img.jpg', 'image/jpeg',
+ *                          'Anonymous', 1.0).then(function (blob) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param src - image src
+ * @param type - the content type (optional, defaults to 'image/png')
+ * @param crossOrigin - for CORS-enabled images, set this to
+ *                                         'Anonymous' to avoid "tainted canvas" errors
+ * @param quality - a number between 0 and 1 indicating image quality
+ *                                     if the requested type is 'image/jpeg' or 'image/webp'
+ * @returns Promise that resolves with the `Blob`
+ */
+
+
+function imgSrcToBlob(src, type, crossOrigin, quality) {
+  type = type || 'image/png';
+  return loadImage(src, crossOrigin).then(imgToCanvas).then(function (canvas) {
+    return canvasToBlob(canvas, type, quality);
+  });
+}
+/**
+ * Convert an `ArrayBuffer` to a `Blob`.
+ *
+ * Example:
+ *
+ * ```js
+ * var blob = blobUtil.arrayBufferToBlob(arrayBuff, 'audio/mpeg');
+ * ```
+ *
+ * @param buffer
+ * @param type - the content type (optional)
+ * @returns Blob
+ */
+
+
+function arrayBufferToBlob(buffer, type) {
+  return createBlob([buffer], type);
+}
+/**
+ * Convert a `Blob` to an `ArrayBuffer`.
+ *
+ * Example:
+ *
+ * ```js
+ * blobUtil.blobToArrayBuffer(blob).then(function (arrayBuff) {
+ *   // success
+ * }).catch(function (err) {
+ *   // error
+ * });
+ * ```
+ *
+ * @param blob
+ * @returns Promise that resolves with the `ArrayBuffer`
+ */
+
+
+function blobToArrayBuffer(blob) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+      var result = reader.result || new ArrayBuffer(0);
+      resolve(result);
+    };
+
+    reader.onerror = reject;
+    reader.readAsArrayBuffer(blob);
+  });
+}
+/**
+ * Convert an `ArrayBuffer` to a binary string.
+ *
+ * Example:
+ *
+ * ```js
+ * var myString = blobUtil.arrayBufferToBinaryString(arrayBuff)
+ * ```
+ *
+ * @param buffer - array buffer
+ * @returns binary string
+ */
+
+
+function arrayBufferToBinaryString(buffer) {
+  var binary = '';
+  var bytes = new Uint8Array(buffer);
+  var length = bytes.byteLength;
+  var i = -1;
+
+  while (++i < length) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+
+  return binary;
+}
+/**
+ * Convert a binary string to an `ArrayBuffer`.
+ *
+ * ```js
+ * var myBuffer = blobUtil.binaryStringToArrayBuffer(binaryString)
+ * ```
+ *
+ * @param binary - binary string
+ * @returns array buffer
+ */
+
+
+function binaryStringToArrayBuffer(binary) {
+  var length = binary.length;
+  var buf = new ArrayBuffer(length);
+  var arr = new Uint8Array(buf);
+  var i = -1;
+
+  while (++i < length) {
+    arr[i] = binary.charCodeAt(i);
+  }
+
+  return buf;
+}
+},{}],"src/RestaurantList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30618,6 +31215,143 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _blobUtil = require("blob-util");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var RestaurantList = function RestaurantList(_ref) {
+  var restaurants = _ref.restaurants;
+  return _react.default.createElement("ul", null, restaurants.map(function (restaurantNames) {
+    return _react.default.createElement("li", {
+      key: restaurantNames
+    }, restaurantNames);
+  }));
+};
+
+var _default = RestaurantList;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","blob-util":"node_modules/blob-util/dist/blob-util.es.js"}],"src/RestaurantListPage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _NewRestaurantForm = _interopRequireDefault(require("./NewRestaurantForm"));
+
+var _RestaurantList = _interopRequireDefault(require("./RestaurantList"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var RestaurantListPage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(RestaurantListPage, _Component);
+
+  function RestaurantListPage() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, RestaurantListPage);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RestaurantListPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      restaurantNames: [],
+      showNewRestaurantForm: false
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleShowNewRestaurantForm", function () {
+      _this.setState({
+        showNewRestaurantForm: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleAddRestaurant", function (newRestaurantName) {
+      _this.setState(function (state) {
+        return {
+          showNewRestaurantForm: false,
+          restaurantNames: [newRestaurantName].concat(_toConsumableArray(state.restaurantNames))
+        };
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(RestaurantListPage, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          restaurantNames = _this$state.restaurantNames,
+          showNewRestaurantForm = _this$state.showNewRestaurantForm;
+      return _react.default.createElement("div", null, _react.default.createElement("button", {
+        "data-test": "addRestaurantButton",
+        onClick: this.handleShowNewRestaurantForm
+      }, "Add Restaurant"), showNewRestaurantForm ? _react.default.createElement(_NewRestaurantForm.default, {
+        onSave: this.handleAddRestaurant
+      }) : null, _react.default.createElement(_RestaurantList.default, {
+        restaurants: restaurantNames
+      }));
+    }
+  }]);
+
+  return RestaurantListPage;
+}(_react.Component);
+
+exports.default = RestaurantListPage;
+},{"react":"node_modules/react/index.js","./NewRestaurantForm":"src/NewRestaurantForm.js","./RestaurantList":"src/RestaurantList.js"}],"src/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _RestaurantListPage = _interopRequireDefault(require("./RestaurantListPage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30653,9 +31387,7 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        className: "hello"
-      }, "Hello. world!");
+      return _react.default.createElement("div", null, _react.default.createElement(_RestaurantListPage.default, null));
     }
   }]);
 
@@ -30663,7 +31395,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js"}],"src/main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./RestaurantListPage":"src/RestaurantListPage.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30705,7 +31437,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60047" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50128" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -14,6 +14,9 @@ typescript-todolist/build
 typescript-redux-todolist/build
 react-tdd/build
 
+# cache
+react-tdd/.cache
+
 # misc
 .DS_Store
 .env.local
