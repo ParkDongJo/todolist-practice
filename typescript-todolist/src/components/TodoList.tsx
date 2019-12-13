@@ -48,7 +48,8 @@ class TodoList extends Component<Props, State> {
         })
     }
 
-    onRemove = (id: number): void => {
+    onRemove = (e: React.MouseEvent, id: number): void => {
+        e.preventDefault();
         const { todoItems } = this.state;
         const nextTodoItems: TodoItemState[] = todoItems.filter( item => item.id !== id );
 
@@ -62,8 +63,12 @@ class TodoList extends Component<Props, State> {
         this.setState({ input: value })
     }
 
+    onModify = (id: number): void => {
+         // 구현중
+    }
+
     render = () => {
-        const { onSubmit, onChange, onToggle, onRemove } = this;
+        const { onSubmit, onChange, onToggle, onRemove, onModify } = this;
         const { input, todoItems } = this.state;
 
         const todoItemList: React.ReactElement[] = todoItems.map(
@@ -72,8 +77,9 @@ class TodoList extends Component<Props, State> {
                     key = {todo.id}
                     done = {todo.done}
                     onToggle = {() => onToggle(todo.id)}
-                    onRemove = {() => onRemove(todo.id)}
-                    text = {todo.text}
+                    onRemove = {(e: React.MouseEvent) => onRemove(e, todo.id)}
+                    onModify = {() => onModify(todo.id)}
+                    text = {todo.text}f
                 />
             )
         )
