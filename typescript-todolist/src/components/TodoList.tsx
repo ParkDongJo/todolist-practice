@@ -36,8 +36,7 @@ class TodoList extends Component<Props, State> {
         this.setState({todoItems: nextTodoItems})
     }
 
-    onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
+    onSubmit = (): void => {
         const { todoItems, input } = this.state;
         const newItem: TodoItemState = { id: this.nextTodoId++, text: input, done: false};
         const nextTodoItems: TodoItemState[] = todoItems.concat(newItem);
@@ -49,6 +48,7 @@ class TodoList extends Component<Props, State> {
     }
 
     onRemove = (e: React.MouseEvent, id: number): void => {
+        console.log("onRemove - ", id);
         e.preventDefault();
         const { todoItems } = this.state;
         const nextTodoItems: TodoItemState[] = todoItems.filter( item => item.id !== id );
@@ -79,7 +79,7 @@ class TodoList extends Component<Props, State> {
                     onToggle = {() => onToggle(todo.id)}
                     onRemove = {(e: React.MouseEvent) => onRemove(e, todo.id)}
                     onModify = {() => onModify(todo.id)}
-                    text = {todo.text}f
+                    text = {todo.text}
                 />
             )
         )
