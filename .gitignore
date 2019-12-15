@@ -5,6 +5,8 @@ typescript-todolist/node_modules
 typescript-redux-todolist/node_modules
 react-tdd/node_modules
 
+# config
+typescript-todolist/.vscode
 
 # testing
 /coverage
